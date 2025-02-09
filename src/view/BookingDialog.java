@@ -31,8 +31,8 @@ public class BookingDialog extends javax.swing.JDialog {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        mainPanel = new javax.swing.JPanel();
+        registerLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         emailLabel = new javax.swing.JLabel();
@@ -41,30 +41,32 @@ public class BookingDialog extends javax.swing.JDialog {
         dateLabel = new javax.swing.JLabel();
         eventDateTextField = new javax.swing.JTextField();
         phoneTextField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        buffetRadioButton = new javax.swing.JRadioButton();
-        menuRadioButton = new javax.swing.JRadioButton();
-        cooksDateRadioButton = new javax.swing.JRadioButton();
-        noServiceRadioButton = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
+        typeEventLabel = new javax.swing.JLabel();
         conferenceRadioButton = new javax.swing.JRadioButton();
         workdayRadioButton = new javax.swing.JRadioButton();
         banquetRadioButton = new javax.swing.JRadioButton();
         assistantsSpinner = new javax.swing.JSpinner();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        roomsTextField = new javax.swing.JTextField();
+        assistantsLabel = new javax.swing.JLabel();
+        roomsLabel = new javax.swing.JLabel();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        kitchenjComboBox = new javax.swing.JComboBox<>();
+        roomsCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Register Fields");
+        registerLabel.setText("Register Fields");
+        registerLabel.setToolTipText("Register Fields");
 
         nameLabel.setText("Name:");
+        nameLabel.setToolTipText("Name");
+
+        nameTextField.setToolTipText("Name");
 
         emailLabel.setText("E-mail:");
+        emailLabel.setToolTipText("Email");
 
+        emailTextField.setToolTipText("Email");
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
@@ -72,47 +74,34 @@ public class BookingDialog extends javax.swing.JDialog {
         });
 
         phoneLabel.setText("Phone Number:");
+        phoneLabel.setToolTipText("Phone Number");
 
         dateLabel.setText("Event Date:");
+        dateLabel.setToolTipText("Event Date");
 
+        eventDateTextField.setToolTipText("Event Date");
         eventDateTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eventDateTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Kitchen:");
+        phoneTextField.setToolTipText("Phone Number");
 
-        buttonGroup1.add(buffetRadioButton);
-        buffetRadioButton.setText("Buffet");
-        buffetRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buffetRadioButtonActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(menuRadioButton);
-        menuRadioButton.setText("Menu");
-
-        buttonGroup1.add(cooksDateRadioButton);
-        cooksDateRadioButton.setText("Cook's Date");
-
-        buttonGroup1.add(noServiceRadioButton);
-        noServiceRadioButton.setText("No service");
-
-        jLabel7.setText("Type of Event:");
+        typeEventLabel.setText("Type of Event:");
+        typeEventLabel.setToolTipText("Type of Event");
 
         buttonGroup2.add(conferenceRadioButton);
         conferenceRadioButton.setText("Conference");
-        conferenceRadioButton.setActionCommand("conference");
+        conferenceRadioButton.setToolTipText("Conference");
 
         buttonGroup2.add(workdayRadioButton);
         workdayRadioButton.setText("Workday");
-        workdayRadioButton.setActionCommand("workday");
+        workdayRadioButton.setToolTipText("Workday");
 
         buttonGroup2.add(banquetRadioButton);
         banquetRadioButton.setText("Banquet");
-        banquetRadioButton.setActionCommand("banquet");
+        banquetRadioButton.setToolTipText("Banquet");
         banquetRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 banquetRadioButtonActionPerformed(evt);
@@ -120,131 +109,124 @@ public class BookingDialog extends javax.swing.JDialog {
         });
 
         assistantsSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        assistantsSpinner.setToolTipText("Assistants");
 
-        jLabel8.setText("Assistants:");
+        assistantsLabel.setText("Assistants:");
+        assistantsLabel.setToolTipText("Assistants");
 
-        jLabel9.setText("Hotel rooms required?");
-
-        roomsTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roomsTextFieldActionPerformed(evt);
-            }
-        });
+        roomsLabel.setText("Hotel rooms required?");
+        roomsLabel.setToolTipText("Rooms required?");
 
         confirmButton.setText("Confirm");
+        confirmButton.setToolTipText("Confirm");
 
         cancelButton.setText("Cancel");
+        cancelButton.setToolTipText("Cancel");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        kitchenjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Type Kitchen", "Buffet", "Menu", "Cook's Date", "No service" }));
+        kitchenjComboBox.setToolTipText("Kitchen");
+
+        roomsCheckBox.setToolTipText("Rooms required?");
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(noServiceRadioButton)
-                    .addComponent(menuRadioButton)
-                    .addComponent(buffetRadioButton)
-                    .addComponent(jLabel6)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(registerLabel)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(phoneLabel)
                                 .addComponent(dateLabel))
                             .addGap(71, 71, 71)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(phoneTextField)
                                 .addComponent(eventDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(emailLabel)
                                 .addComponent(nameLabel))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(nameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                                 .addComponent(emailTextField))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(confirmButton)
-                        .addComponent(cooksDateRadioButton)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(confirmButton))
+                    .addComponent(kitchenjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addComponent(assistantsLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(typeEventLabel)
                             .addComponent(conferenceRadioButton)
                             .addComponent(workdayRadioButton)
                             .addComponent(banquetRadioButton)
                             .addComponent(assistantsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(cancelButton)
                         .addGap(87, 87, 87))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(roomsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(roomsLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(roomsCheckBox)
+                        .addContainerGap())))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(registerLabel)
                         .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLabel)
                             .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(emailLabel)
                             .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(typeEventLabel)
                         .addGap(18, 18, 18)
                         .addComponent(banquetRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(workdayRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(conferenceRadioButton)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(phoneLabel)
                             .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(assistantsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))))
+                            .addComponent(assistantsLabel))))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateLabel)
                     .addComponent(eventDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(roomsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(buffetRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cooksDateRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(noServiceRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(roomsLabel)
+                            .addComponent(roomsCheckBox)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(kitchenjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmButton)
                     .addComponent(cancelButton))
                 .addGap(22, 22, 22))
@@ -254,11 +236,11 @@ public class BookingDialog extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -272,17 +254,9 @@ public class BookingDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_eventDateTextFieldActionPerformed
 
-    private void buffetRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buffetRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buffetRadioButtonActionPerformed
-
     private void banquetRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banquetRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_banquetRadioButtonActionPerformed
-
-    private void roomsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomsTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_roomsTextFieldActionPerformed
 
     public void addConfirmButtonActionListener(ActionListener al) {
         this.confirmButton.addActionListener(al);
@@ -308,11 +282,8 @@ public class BookingDialog extends javax.swing.JDialog {
         return this.phoneTextField.getText();
     }
 
-    public String getRoomsTextField() {
-        return this.roomsTextField.getText();
-    }
     
-    public String getSelectedOption1() {
+    public String getSelectedOptions() {
         String option = null;
         if (buttonGroup1.getSelection() != null) {
             option = buttonGroup1.getSelection().getActionCommand();
@@ -320,12 +291,20 @@ public class BookingDialog extends javax.swing.JDialog {
         return option;
     }
     
-    public String getSelectedOption2() {
-        String option = null;
-        if (buttonGroup2.getSelection() != null) {
-            option = buttonGroup2.getSelection().getActionCommand();
+    public String getSelectedOptionCheckBox() {
+        if (roomsCheckBox.isSelected()) {
+            return "Yes";
+        } else {
+            return "No";
         }
-        return option;
+    }
+    
+    public void addKitchenComboBoxItem(String item) {
+        this.kitchenjComboBox.addItem(item);
+    }
+    
+    public String getKitchenComboBoxItem() {
+        return this.kitchenjComboBox.getSelectedItem().toString();
     }
     
     public int getSpinnerValue() {
@@ -334,32 +313,28 @@ public class BookingDialog extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel assistantsLabel;
     private javax.swing.JSpinner assistantsSpinner;
     private javax.swing.JRadioButton banquetRadioButton;
-    private javax.swing.JRadioButton buffetRadioButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton cancelButton;
     private javax.swing.JRadioButton conferenceRadioButton;
     private javax.swing.JButton confirmButton;
-    private javax.swing.JRadioButton cooksDateRadioButton;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField eventDateTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton menuRadioButton;
+    private javax.swing.JComboBox<String> kitchenjComboBox;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
-    private javax.swing.JRadioButton noServiceRadioButton;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JTextField phoneTextField;
-    private javax.swing.JTextField roomsTextField;
+    private javax.swing.JLabel registerLabel;
+    private javax.swing.JCheckBox roomsCheckBox;
+    private javax.swing.JLabel roomsLabel;
+    private javax.swing.JLabel typeEventLabel;
     private javax.swing.JRadioButton workdayRadioButton;
     // End of variables declaration//GEN-END:variables
 

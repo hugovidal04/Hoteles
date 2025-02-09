@@ -38,14 +38,14 @@ public class BookingController {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String rooms = view.getRoomsTextField();
+                String rooms = view.getSelectedOptionCheckBox();
                 String name = view.getNameTextField();
                 String phone = view.getPhoneTextField();
                 String email = view.getEmailTextField();
                 String event = view.getEventDateTextField();
                 int assistants = view.getSpinnerValue();
-                String kitchenSelectOption = view.getSelectedOption1();
-                String eventSelectOption = view.getSelectedOption2();
+                String kitchenSelectOption = view.getKitchenComboBoxItem();
+                String kitchenComboBox = view.getSelectedOptions();
                 JOptionPane.showMessageDialog(view,
                         "Reserva creada con éxito\n"
                         + "Nombre del registrante: " + name + "\n"
@@ -55,7 +55,7 @@ public class BookingController {
                         + "Habitaciones registradas: " + rooms + "\n"
                         + "Asistentes registrados: " + assistants + "\n"
                         + "Tipo de cocina elegida: " + kitchenSelectOption + "\n"
-                        + "Tipo de evento elegido: " + eventSelectOption);
+                        + "Tipo de evento elegido: " + kitchenComboBox);
             }
         };
         return al;
