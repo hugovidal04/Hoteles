@@ -91,17 +91,20 @@ public class BookingDialog extends javax.swing.JDialog {
         typeEventLabel.setText("Type of Event:");
         typeEventLabel.setToolTipText("Type of Event");
 
-        buttonGroup2.add(conferenceRadioButton);
+        buttonGroup1.add(conferenceRadioButton);
         conferenceRadioButton.setText("Conference");
         conferenceRadioButton.setToolTipText("Conference");
+        conferenceRadioButton.setActionCommand("conference");
 
-        buttonGroup2.add(workdayRadioButton);
+        buttonGroup1.add(workdayRadioButton);
         workdayRadioButton.setText("Workday");
         workdayRadioButton.setToolTipText("Workday");
+        workdayRadioButton.setActionCommand("workday");
 
-        buttonGroup2.add(banquetRadioButton);
+        buttonGroup1.add(banquetRadioButton);
         banquetRadioButton.setText("Banquet");
         banquetRadioButton.setToolTipText("Banquet");
+        banquetRadioButton.setActionCommand("banquet");
         banquetRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 banquetRadioButtonActionPerformed(evt);
